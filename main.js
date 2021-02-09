@@ -85,6 +85,46 @@ const passengers = [
     isDog :  false,
     sex : "women"   
     },
+    {
+    name : "Paweł",
+    isDog :  true,
+    sex :  "men"   
+    },
+    {
+    name : "Ewelina",
+    isDog :  false,
+    sex : "women"   
+    },
+    {
+    name : "Ireneusz",
+    isDog :  false,
+    sex : "men"   
+    },
+    {
+    name : "Daria",
+    isDog :  false,
+    sex : "women"   
+    },
+    {
+    name : "Jonasz",
+    isDog :  true,
+    sex :  "men"   
+    },
+    {
+    name : "Karolinaq",
+    isDog :  false,
+    sex : "women"   
+    },
+    {
+    name : "Judasz",
+    isDog :  false,
+    sex : "men"   
+    },
+    {
+    name : "Beata",
+    isDog :  false,
+    sex : "women"   
+    },
 ]
 
 const passengersHaveDog = passengers.filter(item => item.isDog === false )
@@ -97,15 +137,85 @@ const passengersHaventDogAndWomen = passengers.some(item => item.isDog === false
 //     alert("Jest kobieta")
 // }
 
-const allPassengersHasDog = passengers.map(item => {
-    if (item.isDog === false) {
-        item.isDog = "tekst" 
-    }
-    return item
-})
+// const allPassengersHasDog = passengers.map(item => {
+//     if (item.isDog === false) {
+//         item.isDog = "tekst" 
+//     }
+//     return item
+// })
 
 function changeTile(){
 document.title = "nowy"
 
 console.log(document.title)
+}
+
+console.log(window)
+
+let paragrafId = document.getElementById( "paragraf2" )
+
+console.log(paragrafId)
+
+let paragrafClass = document.getElementsByClassName("paragraf")
+
+console.log("paragrafClass", paragrafClass)
+
+paragrafId.style.color = "red"
+
+let divId = document.getElementById( "divId" )
+
+let divChildren = divId.children
+
+for(let i = 0; i < divChildren.length; i++){
+    divChildren[i].innerHTML = '<button  onclick="changeTile()">Button</button>'
+}
+
+console.log(divId.children)
+
+function createInput(){
+
+const createElement = document.createElement("input")
+
+createElement.value = 1
+
+createElement.setAttribute("class", "nazwaClassy")
+
+let divId = document.getElementById( "divId" )
+
+divId.appendChild(createElement)
+
+console.log(createElement)
+}
+
+// for(i = 0; i < passengers.length; i++) {
+
+//     const createP = document.createElement("p")
+
+//     createP.innerText = passengers[i].name
+
+//     let divId = document.getElementById( "divId" )
+
+//     divId.appendChild(createP)
+
+// }
+
+for(i = 0; i < passengers.length; i++) {
+
+    let gridPassengers = document.getElementById( "gridPassengers" )
+
+    const createDivPassenger = document.createElement("div")
+
+    createDivPassenger.setAttribute("class", "divPassenger")
+
+    createDivPassenger.innerText += "Name: "
+    createDivPassenger.innerText += passengers[i].name
+
+    createDivPassenger.innerText += "Sex: "
+    createDivPassenger.innerText += passengers[i].sex
+
+    createDivPassenger.innerText += "Have dog: "
+    createDivPassenger.innerText += passengers[i].isDog
+   
+    gridPassengers.appendChild(createDivPassenger)
+
 }
